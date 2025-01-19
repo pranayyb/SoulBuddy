@@ -1,0 +1,6 @@
+python-dotenv
+uvicorn
+fastapi
+langchain_huggingface
+langchain_astradb
+langchain_groq
