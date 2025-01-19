@@ -110,7 +110,11 @@ Generates a response to a user query.
 
 ### Output Response
 
-
+```json
+{
+  "response": "Gemstones are precious stones that have been used throughout history for healing and spiritual rituals. They are considered to be storehouses of empowerment, transmitting their power to wearers through contact with their bodies. This power can be beneficial or detrimental, depending on how the gemstone is used. All gemstones have magnetic powers in varying degrees, and many of them are believed to have therapeutic cures due to the vibrations and frequencies they emit.\n\nA life stone, specifically, is a gemstone for the Lagna lord, which can be worn throughout a person's life to experience its mystic powers. Wearing a life stone can remove obstacles and bless an individual with happiness, success, and prosperity."
+}
+```
 
 ## Development Notes
 
