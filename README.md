@@ -50,6 +50,11 @@ SoulBuddy is a conversational spiritual AI platform designed to provide intellig
    GROQ_API_KEY=groq-api-key
    ASTRA_DB_API_ENDPOINT=your-astra-db-endpoint
    ASTRA_DB_APPLICATION_TOKEN=your-astra-db-token
+   BASE_API_URL=base-api-url
+   LANGFLOW_ID=langflow-id
+   FLOW_ID=flow-id
+   APPLICATION_TOKEN=<YOUR_APPLICATION_TOKEN>
+   ENDPOINT=endpoint
    ```
 
 4. **Run the Application**:
@@ -57,6 +62,8 @@ SoulBuddy is a conversational spiritual AI platform designed to provide intellig
    ```bash
    uvicorn main:app --host 0.0.0.0 --port 8000
    ```
+
+---
 
 ## API Endpoints
 
@@ -84,6 +91,32 @@ Generates a response to a user query.
 }
 ```
 
+### **POST** `/langflow-query/`
+
+Generates a response by utilizing LangFlow API.
+
+#### Request Body
+
+```json
+{
+  "query": "string",
+  "flow_id": "string",
+  "langflow_id": "string",
+  "user_data": {
+    "key1": "value1",
+    "key2": "value2"
+  }
+}
+```
+
+#### Response
+
+```json
+{
+  "response": "Generated response based on LangFlow query and user data."
+}
+```
+
 ---
 
 ## How It Works
@@ -92,6 +125,12 @@ Generates a response to a user query.
 2. **Semantic Search**: The query is processed using HuggingFace embeddings to find relevant documents from the AstraDB Vector Store.
 3. **Response Generation**: The query, user data, and relevant documents are combined to form a rich prompt, which is passed to the ChatGroq model for response generation.
 4. **Response Delivery**: The generated response is returned via the API.
+
+For the `/langflow-query/` endpoint:
+
+1. **LangFlow Query**: The query is routed to the LangFlow API using the specified `flow_id` and `langflow_id`.
+2. **Processing**: The LangFlow service processes the query and integrates user data for a comprehensive response.
+3. **Delivery**: The final response is sent back via the API.
 
 ---
 
@@ -115,6 +154,8 @@ Generates a response to a user query.
   "response": "Gemstones are precious stones that have been used throughout history for healing and spiritual rituals. They are considered to be storehouses of empowerment, transmitting their power to wearers through contact with their bodies. This power can be beneficial or detrimental, depending on how the gemstone is used. All gemstones have magnetic powers in varying degrees, and many of them are believed to have therapeutic cures due to the vibrations and frequencies they emit.\n\nA life stone, specifically, is a gemstone for the Lagna lord, which can be worn throughout a person's life to experience its mystic powers. Wearing a life stone can remove obstacles and bless an individual with happiness, success, and prosperity."
 }
 ```
+
+---
 
 ## Development Notes
 
