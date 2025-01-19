@@ -17,7 +17,7 @@ embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-
 
 # Initialize AstraDB client
 client = DataAPIClient(os.getenv("ASTRA_DB_APPLICATION_TOKEN"))
-db = client.get_database_by_api_endpoint(os.getenv("ASTRA_DB_APPLICATION_TOKEN"))
+db = client.get_database_by_api_endpoint(os.getenv("ASTRA_DB_API_ENDPOINT"))
 collection = db["final_boss2"]
 
 # Initialize Groq model
